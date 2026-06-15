@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Kaderwerk</title>
+  <meta name="description" content="Portfolio van Kaderwerk — projecten in webontwikkeling, digitale strategie en visuele content.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Portfolio grid ────────────────────────────────── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .project-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--light);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.1);
+    }
+
+    .project-thumb {
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .project-thumb.t1 { background: var(--anthracite); color: rgba(255,255,255,.2); }
+    .project-thumb.t2 { background: var(--marine); color: rgba(255,255,255,.2); }
+    .project-thumb.t3 { background: #1a1a1a; color: rgba(255,255,255,.2); }
+    .project-thumb.t4 { background: var(--cobalt); color: rgba(255,255,255,.2); }
+    .project-thumb.t5 { background: #222; color: rgba(255,255,255,.2); }
+    .project-thumb.t6 { background: var(--marine); color: rgba(255,255,255,.2); }
+
+    .project-info { padding: 24px; }
+    .project-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .project-info h3 { margin-bottom: 8px; }
+    .project-info p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    /* ── Coming soon badge ─────────────────────────────── */
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(240,112,48,.12);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-top: 12px;
+    }
+    .coming-soon-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse 1.6s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .3; }
+    }
+
+    /* ── Intro strip ───────────────────────────────────── */
+    .portfolio-intro { background: var(--warm); }
+    .portfolio-intro-inner { max-width: 640px; }
+    .portfolio-intro h2 { margin-bottom: 16px; }
+    .portfolio-intro p { color: #555; font-size: 1.02rem; }
+
+    /* ── CTA ───────────────────────────────────────────── */
+    .portfolio-cta { background: var(--anthracite); text-align: center; }
+    .portfolio-cta h2 { color: var(--warm); margin-bottom: 14px; }
+    .portfolio-cta p { color: rgba(255,255,255,.45); margin-bottom: 32px; }
+
+    .project-thumb svg { opacity: .2; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <polygon points="0,0 30,0 0,30" fill="#5BA8D4"/>
+      <polygon points="30,0 30,30 0,30" fill="#F07030"/>
+    </svg>
+    <span class="nav-wordmark">kader<span>werk</span></span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="over-contact.html">Over & Contact</a></li>
+    <li><a href="over-contact.html#contact" class="nav-cta">Offerte</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ PAGE HEADER ════════════════════════════════════════ -->
+<div class="page-header">
+  <svg class="page-header-deco" width="400" height="400" viewBox="0 0 400 400">
+    <polygon points="0,0 400,0 0,400" fill="#5BA8D4"/>
+    <polygon points="400,0 400,400 0,400" fill="#F07030"/>
+  </svg>
+  <span class="label label-ice">Onze projecten</span>
+  <h1>Portfolio</h1>
+  <p>Een selectie van recente projecten — websites, campagnes en visuele content voor lokale bedrijven.</p>
+</div>
+
+<!-- ═══ INTRO STRIP ════════════════════════════════════════ -->
+<section class="portfolio-intro">
+  <div class="portfolio-intro-inner">
+    <span class="label">Opbouw</span>
+    <h2>Elk project is een nieuw kader</h2>
+    <p>Kaderwerk is volop aan het groeien. De eerste projecten worden momenteel afgerond — binnenkort verschijnen ze hier met een volledig case study. Wil u alvast kennismaken met onze aanpak? Neem vrijblijvend contact op.</p>
+    <span class="coming-soon-badge">Projecten worden binnenkort toegevoegd</span>
+  </div>
+</section>
+
+<!-- ═══ PLACEHOLDER GRID ═══════════════════════════════════ -->
+<section style="background:var(--white);">
+  <span class="label">Komende projecten</span>
+  <h2>In de steigers</h2>
+  <p style="color:#777;margin-top:8px">Hieronder een preview van wat er aankomt.</p>
+
+  <div class="portfolio-grid">
+
+    <div class="project-card">
+      <div class="project-thumb t1">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="10" width="36" height="28" rx="3" stroke="white" stroke-width="2"/>
+          <path d="M6 18h36" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="project-info">
+        <span class="project-tag">Webontwikkeling</span>
+        <h3>KMO bedrijfswebsite</h3>
+        <p>Multi-page website voor een lokaal dienstverlenend bedrijf in West-Vlaanderen — design, bouw en SEO-optimalisatie.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb t2">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="16" stroke="white" stroke-width="2"/>
+          <circle cx="24" cy="24" r="6" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="project-info">
+        <span class="project-tag">Branding & Strategie</span>
+        <h3>Merkidentiteit voor starter</h3>
+        <p>Complete brand identity voor een startende freelancer — logo, kleurpalet, typografie en social media templates.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb t3">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="10" width="36" height="28" rx="3" stroke="white" stroke-width="2"/>
+          <path d="M20 24l8 4-8 4V24z" fill="white"/>
+        </svg>
+      </div>
+      <div class="project-info">
+        <span class="project-tag">Foto & Video</span>
+        <h3>Bedrijfsreportage</h3>
+        <p>Sfeerreportage en promovideo voor een evenement in de regio — van planning tot eindproduct.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb t4">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="8" y="14" width="32" height="20" rx="2" stroke="white" stroke-width="2"/>
+          <path d="M8 20h32" stroke="white" stroke-width="1.5" opacity=".5"/>
+          <rect x="14" y="24" width="8" height="4" rx="1" fill="white" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="project-info">
+        <span class="project-tag">Landingspagina</span>
+        <h3>Campagnepagina</h3>
+        <p>Gerichte landingspagina voor een seizoenscampagne — conversieoptimalisatie en Google Ads integratie.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb t5">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M8 38L16 18l8 12 6-8 10 16H8z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="36" cy="14" r="4" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="project-info">
+        <span class="project-tag">Content strategie</span>
+        <h3>Social media & content</h3>
+        <p>Maandelijkse content planning, redactionele kalender en visuele templates voor Instagram en LinkedIn.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb t6">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <polygon points="24,8 40,38 8,38" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="24" y1="18" x2="24" y2="28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="32" r="1.5" fill="white"/>
+        </svg>
+      </div>
+      <div class="project-info">
+        <span class="project-tag">Uw project?</span>
+        <h3>Hier kan uw project staan</h3>
+        <p>Wij zijn op zoek naar nieuwe samenwerkingen in West-Vlaanderen en omgeving. Neem contact op — geen verplichtingen.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section class="portfolio-cta">
+  <span class="label label-ice">Samenwerken?</span>
+  <h2>Uw project is ons volgende kader.</h2>
+  <p>Vertel ons uw verhaal — wij zorgen voor het vakwerk.</p>
+  <a href="over-contact.html#contact" class="btn btn-primary">Neem contact op →</a>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <polygon points="0,0 26,0 0,26" fill="#5BA8D4"/>
+      <polygon points="26,0 26,26 0,26" fill="#F07030"/>
+    </svg>
+    <span class="footer-wordmark">kader<span>werk</span></span>
+  </a>
+  <div class="footer-right">
+    <p>+32 487 29 15 17 · behruz@kaderwerk.be</p>
+    <p style="margin-top:4px">© 2026 Kaderwerk · uw verhaal, ons vakwerk</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+</script>
+</body>
+</html>

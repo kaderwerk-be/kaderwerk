@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaderwerk — Digital Creative</title>
+  <meta name="description" content="Kaderwerk — uw verhaal, ons vakwerk. Webontwikkeling, digitale strategie en visuele content op maat.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Hero ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--anthracite);
+      display: flex;
+      align-items: center;
+      padding: 120px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      right: -100px; bottom: -100px;
+      opacity: .055;
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+    .hero-sublabel {
+      display: block;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: 24px;
+    }
+    .hero h1 { color: var(--warm); margin-bottom: 24px; }
+    .hero h1 span { color: var(--orange); }
+    .hero-sub { color: rgba(255,255,255,.48); font-size: 1.1rem; max-width: 500px; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── Intro ──────────────────────────────────────────── */
+    .intro { background: var(--warm); }
+    .intro-inner { max-width: 700px; }
+    .intro h2 { margin-bottom: 20px; }
+    .intro h2 em { color: var(--orange); font-style: normal; }
+    .intro p { color: #555; font-size: 1.05rem; line-height: 1.8; }
+
+    /* ── Services teaser ────────────────────────────────── */
+    .services-teaser { background: var(--white); }
+    .services-teaser .section-head { margin-bottom: 4px; }
+    .services-teaser > p { color: #777; margin-top: 8px; }
+    .services-teaser .cards-cta { margin-top: 44px; text-align: center; }
+
+    /* ── Why ────────────────────────────────────────────── */
+    .why { background: var(--marine); }
+    .why h2 { color: var(--warm); margin-bottom: 48px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 40px;
+    }
+    .why-num { font-size: 2.4rem; font-weight: 500; color: var(--orange); margin-bottom: 12px; line-height: 1; }
+    .why-item h3 { color: var(--warm); margin-bottom: 8px; }
+    .why-item p  { color: rgba(255,255,255,.42); font-size: 14.5px; }
+
+    /* ── CTA strip ──────────────────────────────────────── */
+    .cta-strip { background: var(--orange); text-align: center; }
+    .cta-strip h2 { color: var(--white); margin-bottom: 14px; }
+    .cta-strip p  { color: rgba(255,255,255,.8); margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg class="logo-icon" width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <polygon points="0,0 30,0 0,30" fill="#5BA8D4"/>
+      <polygon points="30,0 30,30 0,30" fill="#F07030"/>
+    </svg>
+    <span class="nav-wordmark">kader<span>werk</span></span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="over-contact.html">Over & Contact</a></li>
+    <li><a href="over-contact.html#contact" class="nav-cta">Offerte</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+<section class="hero">
+  <svg class="hero-bg" width="600" height="600" viewBox="0 0 600 600">
+    <polygon points="0,0 600,0 0,600" fill="#5BA8D4"/>
+    <polygon points="600,0 600,600 0,600" fill="#F07030"/>
+  </svg>
+  <div class="hero-content">
+    <span class="hero-sublabel">Kaderwerk — Digital Creative · West-Vlaanderen</span>
+    <h1>Uw verhaal,<br><span>ons vakwerk.</span></h1>
+    <p class="hero-sub">Van website tot visuele content — wij bouwen de digitale aanwezigheid die uw merk verdient.</p>
+    <div class="hero-btns">
+      <a href="diensten.html" class="btn btn-primary">Bekijk onze diensten</a>
+      <a href="over-contact.html#contact" class="btn btn-secondary">Neem contact op</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTRO ══════════════════════════════════════════════ -->
+<section class="intro">
+  <div class="intro-inner">
+    <span class="label">Wie zijn wij</span>
+    <h2>Een frisse blik op<br><em>digitaal vakmanschap</em></h2>
+    <p>Kaderwerk is het freelance bureau van Behruz Khonaliev — Digital Creative met een achtergrond in webontwikkeling, media en visuele communicatie. Elk project start vanuit een blanco kader: uw verhaal bepaalt de richting. Het resultaat is een digitale aanwezigheid die werkt.</p>
+  </div>
+</section>
+
+<!-- ═══ SERVICES TEASER ════════════════════════════════════ -->
+<section class="services-teaser">
+  <span class="label">Wat we doen</span>
+  <h2 class="section-head">Diensten op maat</h2>
+  <p>Van eerste schets tot live website — wij begeleiden het volledige traject.</p>
+
+  <div class="cards">
+    <!-- Web -->
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="2" y="3" width="18" height="14" rx="2" stroke="#5BA8D4" stroke-width="1.5"/>
+          <path d="M7 20h8M11 17v3" stroke="#F07030" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M2 8h18" stroke="#5BA8D4" stroke-width="1.2" opacity=".5"/>
+        </svg>
+      </div>
+      <h3>Webontwikkeling</h3>
+      <p>Snelle, mobielvriendelijke websites volledig op maat. Van landingspagina tot multi-page bedrijfssite — schone code, zonder onnodige templates.</p>
+    </div>
+
+    <!-- Strategy -->
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="8" stroke="#5BA8D4" stroke-width="1.5"/>
+          <circle cx="11" cy="11" r="3.5" stroke="#F07030" stroke-width="1.5"/>
+          <path d="M11 3v2M11 17v2M3 11h2M17 11h2" stroke="#5BA8D4" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+        </svg>
+      </div>
+      <h3>Digitale strategie</h3>
+      <p>Branding, SEO en content planning afgestemd op uw doelgroep. Meer zichtbaarheid, meer aanvragen — zonder groot agentschapsbudget.</p>
+    </div>
+
+    <!-- Media -->
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="2" y="5" width="18" height="13" rx="1.5" stroke="#5BA8D4" stroke-width="1.5"/>
+          <path d="M9 9.5l5 2.5-5 2.5V9.5z" fill="#F07030"/>
+        </svg>
+      </div>
+      <h3>Foto & Video</h3>
+      <p>Professionele visuele content via Clicks Media — evenementen, bedrijfsfoto's en promotievideo's op niveau.</p>
+    </div>
+  </div>
+
+  <div class="cards-cta">
+    <a href="diensten.html" class="btn btn-outline">Alle diensten bekijken</a>
+  </div>
+</section>
+
+<!-- ═══ WHY KADERWERK ══════════════════════════════════════ -->
+<section class="why">
+  <span class="label label-ice">Waarom Kaderwerk</span>
+  <h2>Wat ons anders maakt</h2>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h3>Persoonlijk</h3>
+      <p>U werkt rechtstreeks met Behruz. Geen tussenpersonen, snelle communicatie, directe betrokkenheid.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h3>Vanuit nul</h3>
+      <p>Elk project begint met een blanco kader. Uw verhaal en doelstellingen bepalen de richting.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h3>Alles in één</h3>
+      <p>Web, strategie en media onder één dak. Consistent en efficiënt, van concept tot oplevering.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h3>Eerlijke prijs</h3>
+      <p>Kwaliteitswerk zonder agentschapsprijzen. Transparant, zonder verborgen kosten of verrassingen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA STRIP ══════════════════════════════════════════ -->
+<section class="cta-strip">
+  <h2>Klaar om te starten?</h2>
+  <p>Laat ons samen het kader bepalen voor uw verhaal.</p>
+  <a href="over-contact.html#contact" class="btn btn-white">Neem contact op →</a>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <polygon points="0,0 26,0 0,26" fill="#5BA8D4"/>
+      <polygon points="26,0 26,26 0,26" fill="#F07030"/>
+    </svg>
+    <span class="footer-wordmark">kader<span>werk</span></span>
+  </a>
+  <div class="footer-right">
+    <p>+32 487 29 15 17 · behruz@kaderwerk.be</p>
+    <p style="margin-top:4px">© 2026 Kaderwerk · uw verhaal, ons vakwerk</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+</script>
+</body>
+</html>
