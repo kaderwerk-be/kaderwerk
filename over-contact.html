@@ -28,38 +28,49 @@
       align-items: center;
       justify-content: center;
     }
-    .about-card {
-      background: var(--anthracite);
-      border-radius: 20px;
-      padding: 44px;
-      text-align: center;
+    .about-photo-wrap {
+      position: relative;
       width: 100%;
-      max-width: 340px;
+      max-width: 400px;
     }
-    .about-card-name {
-      font-size: 1.2rem;
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 20px;
+      display: block;
+    }
+    .about-photo-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--anthracite);
+      border-radius: 12px;
+      padding: 14px 20px;
+    }
+    .about-photo-badge-name {
+      font-size: 15px;
       font-weight: 500;
       color: var(--warm);
-      margin-top: 20px;
-      margin-bottom: 4px;
     }
-    .about-card-title {
-      font-size: 13px;
+    .about-photo-badge-title {
+      font-size: 11px;
       color: var(--orange);
-      letter-spacing: .06em;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-top: 2px;
     }
-    .about-card-divider {
-      width: 32px;
-      height: 2px;
-      background: rgba(255,255,255,.12);
-      margin: 0 auto 20px;
-    }
-    .about-card-detail {
-      font-size: 13px;
-      color: rgba(255,255,255,.38);
-      line-height: 1.8;
+    .about-photo-deco {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      background: var(--orange);
+      opacity: .15;
+      z-index: -1;
     }
 
     /* ── Values ─────────────────────────────────────────── */
@@ -210,18 +221,12 @@
       <a href="#contact" class="btn btn-outline" style="margin-top:8px">Laten we kennismaken</a>
     </div>
     <div class="about-visual">
-      <div class="about-card">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <polygon points="0,0 64,0 0,64" fill="#5BA8D4" opacity=".7"/>
-          <polygon points="64,0 64,64 0,64" fill="#F07030" opacity=".7"/>
-        </svg>
-        <div class="about-card-name">Behruz Khonaliev</div>
-        <div class="about-card-title">Digital Creative</div>
-        <div class="about-card-divider"></div>
-        <div class="about-card-detail">
-          West-Vlaanderen<br>
-          behruz@kaderwerk.be<br>
-          +32 487 29 15 17
+      <div class="about-photo-wrap">
+        <div class="about-photo-deco"></div>
+        <img class="about-photo" src="img/behruz.png" alt="Behruz Khonaliev — Digital Creative">
+        <div class="about-photo-badge">
+          <div class="about-photo-badge-name">Behruz Khonaliev</div>
+          <div class="about-photo-badge-title">Digital Creative</div>
         </div>
       </div>
     </div>
