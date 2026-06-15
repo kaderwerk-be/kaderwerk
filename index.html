@@ -11,19 +11,15 @@
     .hero {
       min-height: 100vh;
       background: var(--anthracite);
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
       padding: 120px 6% 80px;
+      gap: 48px;
       position: relative;
       overflow: hidden;
     }
-    .hero-bg {
-      position: absolute;
-      right: -100px; bottom: -100px;
-      opacity: .055;
-      pointer-events: none;
-    }
-    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+    .hero-content { position: relative; z-index: 1; }
     .hero-sublabel {
       display: block;
       font-size: 11px;
@@ -35,8 +31,122 @@
     }
     .hero h1 { color: var(--warm); margin-bottom: 24px; }
     .hero h1 span { color: var(--orange); }
-    .hero-sub { color: rgba(255,255,255,.48); font-size: 1.1rem; max-width: 500px; margin-bottom: 40px; }
+    .hero-sub { color: rgba(255,255,255,.48); font-size: 1.1rem; margin-bottom: 40px; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── Laptop mockup ──────────────────────────────────── */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .laptop {
+      width: 100%;
+      max-width: 480px;
+      filter: drop-shadow(0 40px 80px rgba(0,0,0,.5));
+    }
+    .laptop-screen-wrap {
+      background: #1a1c1e;
+      border-radius: 14px 14px 0 0;
+      padding: 10px 10px 0;
+      border: 2px solid #3a3d40;
+      border-bottom: none;
+      position: relative;
+    }
+    .laptop-camera {
+      width: 6px; height: 6px;
+      background: #3a3d40;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+    }
+    .laptop-screen {
+      background: #0d1117;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+
+    /* mini website inside screen */
+    .mock-nav {
+      background: #2B2D2F;
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mock-logo-row { display: flex; align-items: center; gap: 5px; }
+    .mock-logo-icon { width: 12px; height: 12px; }
+    .mock-logo-text { font-size: 8px; font-weight: 600; color: #F8F6F2; letter-spacing: .01em; }
+    .mock-logo-text span { color: #F07030; }
+    .mock-nav-links { display: flex; gap: 8px; }
+    .mock-nav-links span { width: 22px; height: 3px; background: rgba(255,255,255,.2); border-radius: 2px; }
+    .mock-nav-cta { width: 30px; height: 14px; background: #F07030; border-radius: 3px; }
+
+    .mock-hero {
+      background: #2B2D2F;
+      padding: 20px 16px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mock-hero-deco {
+      position: absolute;
+      right: -20px; bottom: -20px;
+      opacity: .06;
+    }
+    .mock-tag { width: 60px; height: 4px; background: #5BA8D4; border-radius: 2px; margin-bottom: 10px; opacity: .6; }
+    .mock-h1a { width: 100px; height: 9px; background: #F8F6F2; border-radius: 3px; margin-bottom: 6px; }
+    .mock-h1b { width: 120px; height: 9px; background: #F07030; border-radius: 3px; margin-bottom: 12px; }
+    .mock-p { width: 140px; height: 4px; background: rgba(255,255,255,.2); border-radius: 2px; margin-bottom: 4px; }
+    .mock-p2 { width: 110px; height: 4px; background: rgba(255,255,255,.2); border-radius: 2px; margin-bottom: 14px; }
+    .mock-btns { display: flex; gap: 6px; }
+    .mock-btn-primary { width: 52px; height: 14px; background: #F07030; border-radius: 4px; }
+    .mock-btn-outline { width: 52px; height: 14px; border: 1px solid rgba(255,255,255,.25); border-radius: 4px; }
+
+    .mock-cards-section { background: #ffffff; padding: 14px 16px; }
+    .mock-section-tag { width: 40px; height: 3px; background: #F07030; border-radius: 2px; margin-bottom: 6px; }
+    .mock-section-h { width: 80px; height: 6px; background: #2B2D2F; border-radius: 2px; margin-bottom: 10px; }
+    .mock-cards-row { display: flex; gap: 8px; }
+    .mock-card-mini {
+      flex: 1;
+      background: #F0F4FA;
+      border-radius: 6px;
+      padding: 8px;
+    }
+    .mock-card-icon { width: 16px; height: 16px; background: #2B2D2F; border-radius: 4px; margin-bottom: 6px; }
+    .mock-card-line { width: 40px; height: 4px; background: #2B2D2F; border-radius: 2px; margin-bottom: 4px; opacity: .5; }
+    .mock-card-line2 { width: 30px; height: 3px; background: #2B2D2F; border-radius: 2px; opacity: .2; }
+
+    .laptop-base-wrap {
+      background: #222527;
+      border-radius: 0 0 4px 4px;
+      height: 16px;
+      border: 2px solid #3a3d40;
+      border-top: none;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 4px;
+    }
+    .laptop-notch {
+      width: 60px; height: 5px;
+      background: #1a1c1e;
+      border-radius: 0 0 4px 4px;
+    }
+    .laptop-foot {
+      background: #1e2022;
+      height: 6px;
+      border-radius: 0 0 8px 8px;
+      margin: 0 10%;
+      border: 1px solid #3a3d40;
+      border-top: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+    }
 
     /* ── Intro ──────────────────────────────────────────── */
     .intro { background: var(--warm); }
@@ -94,12 +204,8 @@
 
 <!-- ═══ HERO ═══════════════════════════════════════════════ -->
 <section class="hero">
-  <svg class="hero-bg" width="600" height="600" viewBox="0 0 600 600">
-    <polygon points="0,0 600,0 0,600" fill="#5BA8D4"/>
-    <polygon points="600,0 600,600 0,600" fill="#F07030"/>
-  </svg>
   <div class="hero-content">
-    <span class="hero-sublabel">Kaderwerk — Digital Creative · West-Vlaanderen</span>
+    <span class="hero-sublabel reveal" style="transition-delay:.1s">Kaderwerk — Digital Creative · West-Vlaanderen</span>
     <h1>Uw verhaal,<br><span>ons vakwerk.</span></h1>
     <p class="hero-sub">Van website tot visuele content — wij bouwen de digitale aanwezigheid die uw merk verdient.</p>
     <div class="hero-btns">
@@ -107,11 +213,82 @@
       <a href="over-contact.html#contact" class="btn btn-secondary">Neem contact op</a>
     </div>
   </div>
+
+  <!-- Laptop mockup -->
+  <div class="hero-visual reveal-right">
+    <div class="laptop">
+      <div class="laptop-screen-wrap">
+        <div class="laptop-camera"></div>
+        <div class="laptop-screen">
+
+          <!-- mock nav -->
+          <div class="mock-nav">
+            <div class="mock-logo-row">
+              <svg class="mock-logo-icon" viewBox="0 0 12 12" fill="none">
+                <polygon points="0,0 12,0 0,12" fill="#5BA8D4"/>
+                <polygon points="12,0 12,12 0,12" fill="#F07030"/>
+              </svg>
+              <span class="mock-logo-text">kader<span>werk</span></span>
+            </div>
+            <div class="mock-nav-links">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="mock-nav-cta"></div>
+          </div>
+
+          <!-- mock hero -->
+          <div class="mock-hero">
+            <svg class="mock-hero-deco" width="100" height="100" viewBox="0 0 100 100">
+              <polygon points="0,0 100,0 0,100" fill="#5BA8D4"/>
+              <polygon points="100,0 100,100 0,100" fill="#F07030"/>
+            </svg>
+            <div class="mock-tag"></div>
+            <div class="mock-h1a"></div>
+            <div class="mock-h1b"></div>
+            <div class="mock-p"></div>
+            <div class="mock-p2"></div>
+            <div class="mock-btns">
+              <div class="mock-btn-primary"></div>
+              <div class="mock-btn-outline"></div>
+            </div>
+          </div>
+
+          <!-- mock cards -->
+          <div class="mock-cards-section">
+            <div class="mock-section-tag"></div>
+            <div class="mock-section-h"></div>
+            <div class="mock-cards-row">
+              <div class="mock-card-mini">
+                <div class="mock-card-icon"></div>
+                <div class="mock-card-line"></div>
+                <div class="mock-card-line2"></div>
+              </div>
+              <div class="mock-card-mini">
+                <div class="mock-card-icon"></div>
+                <div class="mock-card-line"></div>
+                <div class="mock-card-line2"></div>
+              </div>
+              <div class="mock-card-mini">
+                <div class="mock-card-icon"></div>
+                <div class="mock-card-line"></div>
+                <div class="mock-card-line2"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="laptop-base-wrap">
+        <div class="laptop-notch"></div>
+      </div>
+      <div class="laptop-foot"></div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══ INTRO ══════════════════════════════════════════════ -->
 <section class="intro">
-  <div class="intro-inner">
+  <div class="intro-inner reveal-left">
     <span class="label">Wie zijn wij</span>
     <h2>Een frisse blik op<br><em>digitaal vakmanschap</em></h2>
     <p>Kaderwerk is het freelance bureau van Behruz Khonaliev — Digital Creative met een achtergrond in webontwikkeling, media en visuele communicatie. Elk project start vanuit een blanco kader: uw verhaal bepaalt de richting. Het resultaat is een digitale aanwezigheid die werkt.</p>
@@ -124,9 +301,9 @@
   <h2 class="section-head">Diensten op maat</h2>
   <p>Van eerste schets tot live website — wij begeleiden het volledige traject.</p>
 
-  <div class="cards">
+  <div class="cards stagger">
     <!-- Web -->
-    <div class="card">
+    <div class="card reveal">
       <div class="card-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <rect x="2" y="3" width="18" height="14" rx="2" stroke="#5BA8D4" stroke-width="1.5"/>
@@ -139,7 +316,7 @@
     </div>
 
     <!-- Strategy -->
-    <div class="card">
+    <div class="card reveal">
       <div class="card-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <circle cx="11" cy="11" r="8" stroke="#5BA8D4" stroke-width="1.5"/>
@@ -152,7 +329,7 @@
     </div>
 
     <!-- Media -->
-    <div class="card">
+    <div class="card reveal">
       <div class="card-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <rect x="2" y="5" width="18" height="13" rx="1.5" stroke="#5BA8D4" stroke-width="1.5"/>
@@ -173,23 +350,23 @@
 <section class="why">
   <span class="label label-ice">Waarom Kaderwerk</span>
   <h2>Wat ons anders maakt</h2>
-  <div class="why-grid">
-    <div class="why-item">
+  <div class="why-grid stagger">
+    <div class="why-item reveal">
       <div class="why-num">01</div>
       <h3>Persoonlijk</h3>
       <p>U werkt rechtstreeks met Behruz. Geen tussenpersonen, snelle communicatie, directe betrokkenheid.</p>
     </div>
-    <div class="why-item">
+    <div class="why-item reveal">
       <div class="why-num">02</div>
       <h3>Vanuit nul</h3>
       <p>Elk project begint met een blanco kader. Uw verhaal en doelstellingen bepalen de richting.</p>
     </div>
-    <div class="why-item">
+    <div class="why-item reveal">
       <div class="why-num">03</div>
       <h3>Alles in één</h3>
       <p>Web, strategie en media onder één dak. Consistent en efficiënt, van concept tot oplevering.</p>
     </div>
-    <div class="why-item">
+    <div class="why-item reveal">
       <div class="why-num">04</div>
       <h3>Eerlijke prijs</h3>
       <p>Kwaliteitswerk zonder agentschapsprijzen. Transparant, zonder verborgen kosten of verrassingen.</p>
@@ -224,5 +401,6 @@
   const links  = document.getElementById('nav-links');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
 </script>
+<script src="scroll.js"></script>
 </body>
 </html>
