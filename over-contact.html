@@ -3,8 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Over & Contact — Kaderwerk</title>
-  <meta name="description" content="Meer weten over Kaderwerk of een project bespreken? Neem contact op met Behruz Khonaliev — Digital Creative.">
+  <title>Over & Contact — Behruz Khonaliev | Kaderwerk Digital Creative</title>
+  <meta name="description" content="Meer weten over Kaderwerk of een project bespreken? Neem contact op met Behruz Khonaliev — Digital Creative gespecialiseerd in webdesign en strategie in West-Vlaanderen.">
+  <link rel="canonical" href="https://kaderwerk.be/over-contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Kaderwerk">
+  <meta property="og:locale"      content="nl_BE">
+  <meta property="og:url"         content="https://kaderwerk.be/over-contact.html">
+  <meta property="og:title"       content="Over & Contact — Behruz Khonaliev | Kaderwerk Digital Creative">
+  <meta property="og:description" content="Neem contact op met Behruz Khonaliev van Kaderwerk voor webdesign, digitale strategie of foto & video in West-Vlaanderen.">
+  <meta property="og:image"       content="https://kaderwerk.be/img/og-image.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Over & Contact — Behruz Khonaliev | Kaderwerk Digital Creative">
+  <meta name="twitter:description" content="Neem contact op met Behruz Khonaliev van Kaderwerk voor webdesign, digitale strategie of foto & video in West-Vlaanderen.">
+  <meta name="twitter:image"       content="https://kaderwerk.be/img/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── About ─────────────────────────────────────────── */
@@ -388,6 +410,7 @@
           <textarea id="message" name="message" placeholder="Vertel ons over uw project, uw doelstellingen en eventuele timing..." required></textarea>
         </div>
 
+        <div id="form-error" style="display:none;background:rgba(200,40,40,.08);border:1px solid rgba(200,40,40,.25);border-radius:10px;padding:12px 16px;font-size:14px;color:#c02828;margin-bottom:16px;line-height:1.5;"></div>
         <button type="submit" class="btn btn-primary form-submit">Verstuur bericht</button>
         <p class="form-note">Uw gegevens worden nooit gedeeld met derden.</p>
       </form>
@@ -424,10 +447,60 @@
   const links  = document.getElementById('nav-links');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
 
-  function handleSubmit(e) {
+  /* ── Formspree contact form ───────────────────────────────
+     Vervang JOUW_FORM_ID door de ID uit uw Formspree-dashboard.
+     Stap 1: Maak een account op https://formspree.io
+     Stap 2: Klik "New Form", geef het een naam (bv. "Kaderwerk contact")
+     Stap 3: Kopieer de Form ID (8 tekens na /f/) en plak die hieronder.
+  ─────────────────────────────────────────────────────────── */
+  const FORMSPREE_ID = 'mwvjzwea'; // ← verander dit
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+    const form   = document.getElementById('contact-form');
+    const btn    = form.querySelector('.form-submit');
+    const errBox = document.getElementById('form-error');
+
+    // Reset foutmelding
+    errBox.style.display = 'none';
+
+    // Laadstatus
+    btn.disabled = true;
+    btn.textContent = 'Versturen…';
+
+    // Bouw data
+    const data = {
+      voornaam:   form.fname.value,
+      achternaam: form.lname.value,
+      email:      form.email.value,
+      telefoon:   form.phone.value,
+      onderwerp:  form.subject.value,
+      bericht:    form.message.value,
+    };
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        // Succes
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        // Server-fout (bijv. verkeerde ID, limiet bereikt)
+        const json = await res.json().catch(() => ({}));
+        throw new Error(json.error || `HTTP ${res.status}`);
+      }
+    } catch (err) {
+      // Netwerk- of serverfout — toon foutmelding, herstel knop
+      errBox.textContent = `Er is iets misgegaan: ${err.message}. Probeer het opnieuw of mail naar behruz@kaderwerk.be.`;
+      errBox.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Verstuur bericht';
+    }
   }
 </script>
 <script src="scroll.js"></script>
