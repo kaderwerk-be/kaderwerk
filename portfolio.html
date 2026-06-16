@@ -3,8 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Kaderwerk</title>
-  <meta name="description" content="Portfolio van Kaderwerk — projecten in webontwikkeling, digitale strategie en visuele content.">
+  <title>Portfolio — Projecten in Webdesign & Strategie | Kaderwerk</title>
+  <meta name="description" content="Bekijk de projecten van Kaderwerk: maatwerk websites, digitale campagnes en visuele content voor lokale bedrijven in West-Vlaanderen.">
+  <link rel="canonical" href="https://kaderwerk.be/portfolio.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Kaderwerk">
+  <meta property="og:locale"      content="nl_BE">
+  <meta property="og:url"         content="https://kaderwerk.be/portfolio.html">
+  <meta property="og:title"       content="Portfolio — Projecten in Webdesign & Strategie | Kaderwerk">
+  <meta property="og:description" content="Maatwerk websites, digitale campagnes en visuele content voor lokale bedrijven in West-Vlaanderen — ontdek het werk van Kaderwerk.">
+  <meta property="og:image"       content="https://kaderwerk.be/img/og-image.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Portfolio — Projecten in Webdesign & Strategie | Kaderwerk">
+  <meta name="twitter:description" content="Maatwerk websites, digitale campagnes en visuele content voor lokale bedrijven in West-Vlaanderen.">
+  <meta name="twitter:image"       content="https://kaderwerk.be/img/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── Portfolio grid ────────────────────────────────── */
@@ -95,6 +117,80 @@
     .portfolio-cta p { color: rgba(255,255,255,.45); margin-bottom: 32px; }
 
     .project-thumb svg { opacity: .2; }
+
+    /* ── Case study card ──────────────────────────────────── */
+    .case-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 32px rgba(0,0,0,.07);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.12);
+    }
+    .case-thumb {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      position: relative;
+    }
+    .case-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .case-card:hover .case-thumb img { transform: scale(1.04); }
+    .case-thumb-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--anthracite) 0%, var(--marine) 60%, var(--cobalt) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .case-body { padding: 28px 28px 24px; }
+    .case-meta {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .case-tag {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(240,112,48,.1);
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .case-client {
+      font-size: 11px; color: #999;
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    .case-body h3 { margin-bottom: 10px; font-size: 1.15rem; }
+    .case-body p  { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 16px; }
+    .case-result {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--light); border-radius: 10px;
+      padding: 12px 14px; margin-bottom: 20px;
+    }
+    .case-result-icon { flex-shrink: 0; margin-top: 1px; }
+    .case-result-text { font-size: 13px; color: var(--marine); font-weight: 500; line-height: 1.5; }
+    .case-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      color: var(--cobalt); text-decoration: none;
+      transition: gap .2s;
+    }
+    .case-link:hover { gap: 10px; }
+
+    /* ── Cases section ────────────────────────────────────── */
+    .cases-section { background: var(--white); }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    /* ── Intro strip update ───────────────────────────────── */
+    .portfolio-intro { background: var(--warm); }
   </style>
 </head>
 <body>
@@ -136,21 +232,64 @@
   <div class="portfolio-intro-inner reveal-left">
     <span class="label">Opbouw</span>
     <h2>Elk project is een nieuw kader</h2>
-    <p>Kaderwerk is volop aan het groeien. De eerste projecten worden momenteel afgerond — binnenkort verschijnen ze hier met een volledig case study. Wil u alvast kennismaken met onze aanpak? Neem vrijblijvend contact op.</p>
-    <span class="coming-soon-badge">Projecten worden binnenkort toegevoegd</span>
+    <p>Elk project is een kans om iets tastbaars neer te zetten. Hieronder vindt u een eerste case study, met meer projecten die momenteel in uitvoering zijn. Wil u kennismaken met onze aanpak? Neem vrijblijvend contact op.</p>
   </div>
 </section>
 
-<!-- ═══ PLACEHOLDER GRID ═══════════════════════════════════ -->
-<section style="background:var(--white);">
-  <span class="label">Komende projecten</span>
-  <h2>In de steigers</h2>
-  <p style="color:#777;margin-top:8px">Hieronder een preview van wat er aankomt.</p>
+<!-- ═══ CASES ══════════════════════════════════════════════ -->
+<section class="cases-section">
+  <span class="label">Case study</span>
+  <h2>Geselecteerde projecten</h2>
+  <p style="color:#777;margin-top:8px;max-width:540px">Eén afgeronde case — meer projecten volgen zodra ze live zijn.</p>
 
-  <div class="portfolio-grid stagger">
+  <div class="cases-grid">
 
+    <!-- ── Case 01: Kaderwerk.be ───────────────────────────── -->
+    <div class="case-card reveal">
+      <div class="case-thumb">
+        <!-- Vervang door een screenshot van kaderwerk.be zodra beschikbaar -->
+        <!-- <img src="img/case-kaderwerk.jpg" alt="Kaderwerk website screenshot"> -->
+        <div class="case-thumb-placeholder">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <polygon points="0,0 64,0 0,64" fill="#5BA8D4" opacity=".6"/>
+            <polygon points="64,0 64,64 0,64" fill="#F07030" opacity=".6"/>
+            <rect x="16" y="22" width="32" height="22" rx="3" stroke="white" stroke-width="2"/>
+            <path d="M16 30h32" stroke="white" stroke-width="1.5"/>
+            <circle cx="22" cy="26" r="2" fill="white" opacity=".6"/>
+            <circle cx="29" cy="26" r="2" fill="white" opacity=".4"/>
+            <circle cx="36" cy="26" r="2" fill="white" opacity=".2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-meta">
+          <span class="case-tag">Webontwikkeling</span>
+          <span class="case-tag">Branding</span>
+          <span class="case-client">Kaderwerk — eigen project</span>
+        </div>
+        <h3>Kaderwerk — van nul tot live in één sprint</h3>
+        <p>Complete merkidentiteit en multi-page website voor het eigen freelance bureau. Van naamgeving en logo (driehoek-motief in ice blue &amp; oranje) over kleurpalet en typografie tot een volledig responsieve site met scroll-animaties, dienstenpagina, portfolio en contactformulier — allemaal in pure HTML/CSS zonder frameworks.</p>
+        <div class="case-result">
+          <div class="case-result-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="7.5" stroke="#12325C" stroke-width="1.5"/>
+              <path d="M6 9l2.5 2.5 4-5" stroke="#F07030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="case-result-text">Live op kaderwerk.be — snelle laadtijd, volledige SEO-meta, OpenGraph en Netlify-hosting. Van concept tot deployment in één sessie.</div>
+        </div>
+        <a href="https://kaderwerk.be" target="_blank" rel="noopener" class="case-link">
+          Bekijk live site
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Placeholder: volgende case ─────────────────────── -->
     <div class="project-card reveal">
-      <div class="project-thumb t1">
+      <div class="project-thumb t2">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
           <rect x="6" y="10" width="36" height="28" rx="3" stroke="white" stroke-width="2"/>
           <path d="M6 18h36" stroke="white" stroke-width="1.5"/>
@@ -159,12 +298,14 @@
       <div class="project-info">
         <span class="project-tag">Webontwikkeling</span>
         <h3>KMO bedrijfswebsite</h3>
-        <p>Multi-page website voor een lokaal dienstverlenend bedrijf in West-Vlaanderen — design, bouw en SEO-optimalisatie.</p>
+        <p>Multi-page website voor een lokaal dienstverlenend bedrijf — design, bouw en SEO-optimalisatie op maat.</p>
+        <span class="coming-soon-badge">Binnenkort</span>
       </div>
     </div>
 
+    <!-- ── Placeholder ─────────────────────────────────────── -->
     <div class="project-card reveal">
-      <div class="project-thumb t2">
+      <div class="project-thumb t3">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
           <circle cx="24" cy="24" r="16" stroke="white" stroke-width="2"/>
           <circle cx="24" cy="24" r="6" stroke="white" stroke-width="2"/>
@@ -173,12 +314,14 @@
       <div class="project-info">
         <span class="project-tag">Branding & Strategie</span>
         <h3>Merkidentiteit voor starter</h3>
-        <p>Complete brand identity voor een startende freelancer — logo, kleurpalet, typografie en social media templates.</p>
+        <p>Complete brand identity — logo, kleurpalet, typografie en social media templates.</p>
+        <span class="coming-soon-badge">Binnenkort</span>
       </div>
     </div>
 
+    <!-- ── Placeholder ─────────────────────────────────────── -->
     <div class="project-card reveal">
-      <div class="project-thumb t3">
+      <div class="project-thumb t4">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
           <rect x="6" y="10" width="36" height="28" rx="3" stroke="white" stroke-width="2"/>
           <path d="M20 24l8 4-8 4V24z" fill="white"/>
@@ -187,52 +330,17 @@
       <div class="project-info">
         <span class="project-tag">Foto & Video</span>
         <h3>Bedrijfsreportage</h3>
-        <p>Sfeerreportage en promovideo voor een evenement in de regio — van planning tot eindproduct.</p>
+        <p>Sfeerreportage en promovideo voor een bedrijf of evenement — van planning tot eindproduct.</p>
+        <span class="coming-soon-badge">Binnenkort</span>
       </div>
     </div>
 
-    <div class="project-card reveal">
-      <div class="project-thumb t4">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <rect x="8" y="14" width="32" height="20" rx="2" stroke="white" stroke-width="2"/>
-          <path d="M8 20h32" stroke="white" stroke-width="1.5" opacity=".5"/>
-          <rect x="14" y="24" width="8" height="4" rx="1" fill="white" opacity=".5"/>
-        </svg>
-      </div>
-      <div class="project-info">
-        <span class="project-tag">Landingspagina</span>
-        <h3>Campagnepagina</h3>
-        <p>Gerichte landingspagina voor een seizoenscampagne — conversieoptimalisatie en Google Ads integratie.</p>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-thumb t5">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <path d="M8 38L16 18l8 12 6-8 10 16H8z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-          <circle cx="36" cy="14" r="4" stroke="white" stroke-width="2"/>
-        </svg>
-      </div>
-      <div class="project-info">
-        <span class="project-tag">Content strategie</span>
-        <h3>Social media & content</h3>
-        <p>Maandelijkse content planning, redactionele kalender en visuele templates voor Instagram en LinkedIn.</p>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-thumb t6">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <polygon points="24,8 40,38 8,38" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-          <line x1="24" y1="18" x2="24" y2="28" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="24" cy="32" r="1.5" fill="white"/>
-        </svg>
-      </div>
-      <div class="project-info">
-        <span class="project-tag">Uw project?</span>
-        <h3>Hier kan uw project staan</h3>
-        <p>Wij zijn op zoek naar nieuwe samenwerkingen in West-Vlaanderen en omgeving. Neem contact op — geen verplichtingen.</p>
-      </div>
+    <!-- ── CTA-kaart ──────────────────────────────────────── -->
+    <div class="project-card reveal" style="background:linear-gradient(135deg,var(--marine),var(--cobalt));display:flex;flex-direction:column;justify-content:center;padding:32px;">
+      <span class="project-tag" style="color:rgba(255,255,255,.5);background:rgba(255,255,255,.1)">Nieuw project</span>
+      <h3 style="color:white;margin-top:12px">Hier kan uw project staan</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:14px;line-height:1.7;margin:12px 0 20px">Wij zoeken nieuwe samenwerkingen in West-Vlaanderen en omgeving. Neem contact op — geen verplichtingen.</p>
+      <a href="over-contact.html#contact" class="btn btn-primary" style="align-self:flex-start;font-size:14px">Neem contact op →</a>
     </div>
 
   </div>
